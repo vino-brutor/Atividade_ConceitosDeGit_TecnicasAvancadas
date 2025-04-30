@@ -3,107 +3,104 @@ package calculadoraPackage;
 import java.util.Scanner;
 
 public class Calculadora {
-
-	//--declaracao das variaveis--
-	int opcaoDeOperacao; //variavale para escolher qual unfcao de operacao sera usada
-	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		int opcaoDeOperacao; //variavale para escolher qual unfcao de operacao sera usada
 		Scanner scanner = new Scanner(System.in); //declara o scanner para ler os valores int
 		
-		System.out.println("Qual operacao deseja fazer?\n1 - soma\n2 - subtracao\n3 - multiplicacao\n4 - divisao");
-		int opcaoDeOperacao = scanner.nextInt(); 
+		do {
+			System.out.println("Qual operacao deseja fazer?\n1 - soma\n2 - subtracao\n3 - multiplicacao\n4 - divisao\n5 - sair");
+			opcaoDeOperacao = scanner.nextInt(); 
+			
+			switch (opcaoDeOperacao) {
+			
+			//operacao de somar
+			case 1: {
+				
+				executarSoma(scanner);
+				break;
+				
+			}
+			
+			//operacao de subtrair
+			case 2:{
+				
+				executarSubtracao(scanner);
+				break;
+				
+			//operacao de multiplicar
+			}case 3:{
+				
+				executarMultiplicacao(scanner);
+				break;
+				
+			//operacao de dividir
+			}case 4:{
+				
+				executarDivisao(scanner);
+				break;
+				
+			}
+			case 5: {
+				break;
+			}
+			default:
+				//printa caso a opcao n seja uma das acimas, pra ssim o usuario n ter erro
+				System.out.println("\nOpcao invalida tente novamente\n");
+			}
+			
+		}while(opcaoDeOperacao != 5);
 		
-		switch (opcaoDeOperacao) {
-		
-		//operacao de somar
-		case 1: {
-			
-			somarValores(scanner);
-			break;
-			
-		}
-		
-		//operacao de subtrair
-		case 2:{
-			
-			subtrairValores(scanner);
-			break;
-			
-		//operacao de multiplicar
-		}case 3:{
-			
-			multiplicarValores(scanner);
-			break;
-			
-		//operacao de dividir
-		}case 4:{
-			
-			dividirValores(scanner);
-			break;
-			
-		}
-		
-		default:
-			//lanca um erro caso a opcao n seja uma das acimas
-			throw new IllegalArgumentException("Unexpected value: " + opcaoDeOperacao);
-		}
+		System.out.println("\nSaindo...");
+		scanner.close();
 		
 	}
 
-	public static void somarValores(Scanner scanner) {
+	public static void executarSoma(Scanner scanner) {
 		
-		//pede pro usuario informar os dois valores para informar depois
-		System.out.println("Digite o primeiro valor: ");
-		double primeiroValorDaConta = scanner.nextDouble(); 
+		//devolve os valores selecionados pelo usuario num array
+		double[] valoresEscolhidos = lerDoisValoresParaCalcular(scanner);
 		
-		System.out.println("Digite o segundo valor: ");
-		double segundoValorDaConta = scanner.nextDouble(); 
-		
-		scanner.close();
-		
-		//da print no resultado aplicando a funcao dentro do print para poupar liinhas
-		System.out.println(primeiroValorDaConta + " + " + segundoValorDaConta + " = " + (primeiroValorDaConta + segundoValorDaConta));
+		//resultado
+		System.out.println("\n" + valoresEscolhidos[0] + " + " + valoresEscolhidos[1] + " = " + (valoresEscolhidos[0] + valoresEscolhidos[1])+"\n");
 	}
 	
-	public static void subtrairValores(Scanner scanner) {
-		//pede pro usuario informar os dois valores para informar depois
-		System.out.println("Digite o primeiro valor: ");
-		double primeiroValorDaConta = scanner.nextDouble(); 
+	public static void executarSubtracao(Scanner scanner) {
 		
-		System.out.println("Digite o segundo valor: ");
-		double segundoValorDaConta = scanner.nextDouble();
+		//devolve os valores selecionados pelo usuario num array
+		double[] valoresEscolhidos = lerDoisValoresParaCalcular(scanner);
 		
-		scanner.close();
-		
-		//da print no resultado junto com a chamada da funcao 
-		System.out.println(primeiroValorDaConta + " - " + segundoValorDaConta + " = " + (primeiroValorDaConta - segundoValorDaConta));
+		System.out.println("\n" + valoresEscolhidos[0] + " - " + valoresEscolhidos[1] + " = " + (valoresEscolhidos[0] - valoresEscolhidos[1])+"\n");
 	}
 	
-	public static void multiplicarValores(Scanner scanner) {
-		//pede pro usuario informar os dois valores para informar depois
-		System.out.println("Digite o primeiro valor: ");
-		double primeiroValorDaConta = scanner.nextDouble(); 
+	public static void executarMultiplicacao(Scanner scanner) {
 		
-		System.out.println("Digite o segundo valor: ");
-		double segundoValorDaConta = scanner.nextDouble();
+		//devolve os valores selecionados pelo usuario num array
+		double[] valoresEscolhidos = lerDoisValoresParaCalcular(scanner);
 		
-		scanner.close();
-		
-		//da print no resultado junto da chamada da funcao pra poupar linhas
-		System.out.println(primeiroValorDaConta + " * " + segundoValorDaConta + " = " + (primeiroValorDaConta * segundoValorDaConta));
+		//resultado
+		System.out.println("\n" + valoresEscolhidos[0] + " * " + valoresEscolhidos[1] + " = " + (valoresEscolhidos[0] * valoresEscolhidos[1])+"\n");
 	}
 	
-	public static void dividirValores(Scanner scanner) {
-		//pede pro usuario informar os dois valores para informar depois
+	public static void executarDivisao(Scanner scanner) {
+		
+		//devolve os valores selecionados pelo usuario num array
+		double[] valoresEscolhidos = lerDoisValoresParaCalcular(scanner);
+		
+		//resultado
+		System.out.println("\n" + valoresEscolhidos[0] + " / " + valoresEscolhidos[1] + " = " + (valoresEscolhidos[0] / valoresEscolhidos[1])+"\n");
+	}
+	
+	public static double[] lerDoisValoresParaCalcular(Scanner scanner) {
+		
+		// pede pro usuario informar os dois valores para informar depois
 		System.out.println("Digite o primeiro valor: ");
 		double primeiroValorDaConta = scanner.nextDouble();
-		
+
 		System.out.println("Digite o segundo valor: ");
 		double segundoValorDaConta = scanner.nextDouble(); 
 		
-		//da print no resultado junto da chamada da funcao pra poupar as linhas
-		System.out.println(primeiroValorDaConta + " / " + segundoValorDaConta + " = " + (primeiroValorDaConta / segundoValorDaConta));
+		return new double[] {primeiroValorDaConta, segundoValorDaConta};
 	}
 }
