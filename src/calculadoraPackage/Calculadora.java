@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class Calculadora {
 
-	int opcao;
-	static double a, b;
+	int opcaoDeOperacao;
+	static double primeiroValorDaConta, segundoValorDaConta;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Qual operacao deseja fazer?\n1 - soma\n2 - subtracao\n3 - multiplicacao\n4 - divisao");
-		int opcao = scanner.nextInt();
+		int opcaoDeOperacao = scanner.nextInt();
 		
-		switch (opcao) {
+		switch (opcaoDeOperacao) {
 		case 1: {
 			
 			System.out.println("Digite o primeiro valor: ");
-			a = scanner.nextDouble();
+			primeiroValorDaConta = scanner.nextDouble();
 			
 			System.out.println("Digite o segundo valor: ");
-			b = scanner.nextDouble();
+			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(a + " + " + b + " = " + soma(a,b));
+			System.out.println(primeiroValorDaConta + " + " + segundoValorDaConta + " = " + soma(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
@@ -31,36 +31,36 @@ public class Calculadora {
 		case 2:{
 			
 			System.out.println("Digite o primeiro valor: ");
-			a = scanner.nextDouble();
+			primeiroValorDaConta = scanner.nextDouble();
 			
 			System.out.println("Digite o segundo valor: ");
-			b = scanner.nextDouble();
+			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(a + " - " + b + " = " + sub(a,b));
+			System.out.println(primeiroValorDaConta + " - " + segundoValorDaConta + " = " + sub(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
 		}case 3:{
 			
 			System.out.println("Digite o primeiro valor: ");
-			a = scanner.nextDouble();
+			primeiroValorDaConta = scanner.nextDouble();
 			
 			System.out.println("Digite o segundo valor: ");
-			b = scanner.nextDouble();
+			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(a + " * " + b + " = " + multiplicacao(a,b));
+			System.out.println(primeiroValorDaConta + " * " + segundoValorDaConta + " = " + multiplicacao(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
 		}case 4:{
 			
 			System.out.println("Digite o primeiro valor: ");
-			a = scanner.nextDouble();
+			primeiroValorDaConta = scanner.nextDouble();
 			
 			System.out.println("Digite o segundo valor: ");
-			b = scanner.nextDouble();
+			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(a + " / " + b + " = " + divisao(a,b));
+			System.out.println(primeiroValorDaConta + " / " + segundoValorDaConta + " = " + divisao(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
