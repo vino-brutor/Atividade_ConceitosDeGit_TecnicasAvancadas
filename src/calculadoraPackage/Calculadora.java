@@ -23,7 +23,7 @@ public class Calculadora {
 			System.out.println("Digite o segundo valor: ");
 			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(primeiroValorDaConta + " + " + segundoValorDaConta + " = " + soma(primeiroValorDaConta,segundoValorDaConta));
+			System.out.println(primeiroValorDaConta + " + " + segundoValorDaConta + " = " + somarValores(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
@@ -36,7 +36,7 @@ public class Calculadora {
 			System.out.println("Digite o segundo valor: ");
 			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(primeiroValorDaConta + " - " + segundoValorDaConta + " = " + sub(primeiroValorDaConta,segundoValorDaConta));
+			System.out.println(primeiroValorDaConta + " - " + segundoValorDaConta + " = " + subtrairValores(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
@@ -48,7 +48,7 @@ public class Calculadora {
 			System.out.println("Digite o segundo valor: ");
 			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(primeiroValorDaConta + " * " + segundoValorDaConta + " = " + multiplicacao(primeiroValorDaConta,segundoValorDaConta));
+			System.out.println(primeiroValorDaConta + " * " + segundoValorDaConta + " = " + multiplicarValores(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
@@ -60,31 +60,31 @@ public class Calculadora {
 			System.out.println("Digite o segundo valor: ");
 			segundoValorDaConta = scanner.nextDouble();
 			
-			System.out.println(primeiroValorDaConta + " / " + segundoValorDaConta + " = " + divisao(primeiroValorDaConta,segundoValorDaConta));
+			System.out.println(primeiroValorDaConta + " / " + segundoValorDaConta + " = " + dividirValores(primeiroValorDaConta,segundoValorDaConta));
 			
 			break;
 			
 		}
 		
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + opcao);
+			throw new IllegalArgumentException("Unexpected value: " + opcaoDeOperacao);
 		}
 		
 	}
 
-	public static double soma(double a, double b) {
+	public static double somarValores(double a, double b) {
 		return a + b;
 	}
 	
-	public static double sub(double a, double b) {
+	public static double subtrairValores(double a, double b) {
 		return a - b;
 	}
 	
-	public static double multiplicacao(double a, double b) {
+	public static double multiplicarValores(double a, double b) {
 		return a * b;
 	}
 	
-	public static double divisao(double a, double b) {
+	public static double dividirValores(double a, double b) {
 		return a / b;
 	}
 }
